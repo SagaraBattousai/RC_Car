@@ -1,0 +1,18 @@
+
+# CMAKE Build dirs
+build/
+
+# Vim Ignore
+*.swp
+vim_sessions/
+
+# visualStudios
+*.vs
+
+# vs code
+.vscode/
+
+#Project specific
+
+## docs
+docs/sphinx/_static/css/_*
