@@ -6,6 +6,17 @@
 
 static const int ACCELEROMETER_ADDR = 0x68;
 
+
+
+
+
+typedef struct accelerometer {
+    i2c_inst_t *i2c;
+    uint8_t address;
+} accelerometer_t;
+
+
+
 void reset_accelerometer(i2c_inst_t *i2c) {
     uint8_t buf[] = {0x6B, 0x80};
 

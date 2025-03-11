@@ -35,3 +35,22 @@ pico_add_extra_outputs(RC_Car)
 
 set_target_properties(RC_Car PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
+###############################################################################
+###### CUSTOM LINKER SCRIPT IS IGNORED FOR NOW! 
+## A) Don't really want to rewrite the whole thing 
+##### (wouldn't be so bad if we could just add stuff in a second script.)
+#
+## B) I guess I don't fully understand .Heap as it has no "size" and grows
+##### dynamically.
+#
+## C) The Heap can overtake the stack anyway so lets just stick our custom 
+##### part at the end of the Heap
+###############################################################################
+
+# set(LINKER_SCRIPT "${CMAKE_CURRENT_LIST_DIR}/custom_malloc.ld")
+# set(LINKER_SCRIPT "${CMAKE_CURRENT_LIST_DIR}/memmap_custom_malloc.ld")
+# set_target_properties(RC_Car PROPERTIES LINK_DEPENDS ${LINKER_SCRIPT})
+# target_link_options(RC_Car PUBLIC "LINKER:-T,${LINKER_SCRIPT}")
+# target_link_options(RC_Car PUBLIC "LINKER:SHELL:-T ${LINKER_SCRIPT}")
+# pico_add_link_depend(RC_Car ${LINKER_SCRIPT})
+# pico_set_linker_script(RC_Car ${LINKER_SCRIPT})
